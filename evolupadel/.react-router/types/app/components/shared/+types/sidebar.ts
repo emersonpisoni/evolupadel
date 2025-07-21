@@ -2,10 +2,10 @@
 
 import type { GetInfo, GetAnnotations } from "react-router/internal";
 
-type Module = typeof import("../dashboard.screen.js")
+type Module = typeof import("../sidebar.js")
 
 type Info = GetInfo<{
-  file: "./routes/dashboard/dashboard.screen.tsx",
+  file: "./components/shared/sidebar.tsx",
   module: Module
 }>
 
@@ -14,10 +14,7 @@ type Matches = [{
   module: typeof import("../../../root.js");
 }, {
   id: "components/shared/sidebar";
-  module: typeof import("../../../components/shared/sidebar.js");
-}, {
-  id: "routes/dashboard/dashboard.screen";
-  module: typeof import("../dashboard.screen.js");
+  module: typeof import("../sidebar.js");
 }];
 
 type Annotations = GetAnnotations<Info & { module: Module, matches: Matches }>;

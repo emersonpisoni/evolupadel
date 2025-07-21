@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 export default function Login() {
   return (
     <div className="flex items-center justify-center h-screen">
@@ -20,12 +22,13 @@ export default function Login() {
               placeholder="••••••••"
             />
           </div>
-          <button
-            type="submit"
+          <Link
+            to={"/"}
+            // type="submit"
             className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700"
           >
             Entrar
-          </button>
+          </Link>
         </form>
       </div>
     </div>

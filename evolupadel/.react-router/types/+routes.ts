@@ -23,6 +23,10 @@ type RouteFiles = {
     id: "root";
     page: "/" | "/login";
   };
+  "./components/shared/sidebar.tsx": {
+    id: "components/shared/sidebar";
+    page: "/";
+  };
   "./routes/dashboard/dashboard.screen.tsx": {
     id: "routes/dashboard/dashboard.screen";
     page: "/";

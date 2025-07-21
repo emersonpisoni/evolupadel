@@ -1,5 +1,6 @@
 
 import { Card, CardContent } from "@/components/ui/card";
+import { Link } from "react-router";
 
 export default function Dashboard() {
   return (
@@ -24,6 +25,17 @@ export default function Dashboard() {
             <h2 className="text-3xl font-bold">27</h2>
           </CardContent>
         </Card>
+        <Link
+          to={"/login"}
+          type="submit"
+        >
+          <Card>
+            <CardContent>
+              <p className="text-gray-500">Login</p>
+              <h2 className="text-3xl font-bold">27</h2>
+            </CardContent>
+          </Card>
+        </Link>
       </div>
     </div>
   );
