@@ -1,12 +1,12 @@
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 import { RouterProvider, createRouter } from '@tanstack/react-router'
-
 // Import the generated route tree
 import { routeTree } from './routeTree.gen'
 
-import './styles.css'
+import './styles/globals.css'
 import reportWebVitals from './reportWebVitals.ts'
+import { ThemeProvider } from '@/components/theme-provider.tsx'
 
 // Create a new router instance
 const router = createRouter({
@@ -26,12 +26,14 @@ declare module '@tanstack/react-router' {
 }
 
 // Render the app
-const rootElement = document.getElementById('app')
+const rootElement = document.getElementById('root')
 if (rootElement && !rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement)
   root.render(
     <StrictMode>
-      <RouterProvider router={router} />
+      <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+        <RouterProvider router={router} />
+      </ThemeProvider>
     </StrictMode>,
   )
 }

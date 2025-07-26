@@ -1,11 +1,14 @@
-import { Outlet, createRootRoute } from '@tanstack/react-router'
-import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
+import { ModeToggle } from '@/components/mode-toggle'
+import { createRootRoute, Outlet } from '@tanstack/react-router'
 
 export const Route = createRootRoute({
   component: () => (
     <>
-      <Outlet />
-      <TanStackRouterDevtools />
+      <hr />
+      <div id="root-content">
+        <Outlet />
+        <ModeToggle />
+      </div>
     </>
   ),
 })
