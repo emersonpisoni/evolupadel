@@ -1,4 +1,4 @@
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react"
+import { Home, Inbox, LogOut, Settings } from "lucide-react";
 
 import {
   Sidebar,
@@ -9,8 +9,9 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/components/ui/sidebar"
-import { Link } from "@tanstack/react-router"
+} from "@/components/ui/sidebar";
+import { useAuth } from "@/src/auth/auth-context";
+import { Link, useNavigate } from "@tanstack/react-router";
 
 // Menu items.
 const items = [
@@ -32,6 +33,14 @@ const items = [
 ]
 
 export function AppSidebar() {
+  const { logout } = useAuth();
+  const navigate = useNavigate();
+
+  function handleLogout() {
+    logout();
+    navigate({ to: "/login" });
+  }
+
   return (
     <Sidebar>
       <SidebarContent>
@@ -49,6 +58,14 @@ export function AppSidebar() {
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
+              <SidebarMenuItem key='logout'>
+                <SidebarMenuButton onClick={handleLogout}>
+                  <>
+                    <LogOut />
+                    <span>Sair</span>
+                  </>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>

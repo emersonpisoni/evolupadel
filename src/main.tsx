@@ -4,9 +4,10 @@ import { RouterProvider, createRouter } from '@tanstack/react-router'
 // Import the generated route tree
 import { routeTree } from './routeTree.gen'
 
-import './styles/globals.css'
+// import './styles/globals.css'
 import reportWebVitals from './reportWebVitals.ts'
 import { ThemeProvider } from '@/components/theme-provider.tsx'
+import { AuthProvider } from './auth/auth-context.tsx'
 
 // Create a new router instance
 const router = createRouter({
@@ -32,7 +33,9 @@ if (rootElement && !rootElement.innerHTML) {
   root.render(
     <StrictMode>
       <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-        <RouterProvider router={router} />
+        <AuthProvider>
+          <RouterProvider router={router} />
+        </AuthProvider>
       </ThemeProvider>
     </StrictMode>,
   )

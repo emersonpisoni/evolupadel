@@ -4,9 +4,24 @@ import {
   SidebarProvider,
   SidebarTrigger
 } from "@/components/ui/sidebar"
-import { createFileRoute, Outlet } from "@tanstack/react-router"
+import { getUser } from "@/src/auth/auth";
+import { createFileRoute, Outlet, redirect } from "@tanstack/react-router"
 
 export const Route = createFileRoute('/dashboard')({
+  beforeLoad: () => {
+    const user = getUser();
+    if (!user) {
+      // Redireciona para login se não estiver autenticado
+      throw redirect({ to: "/login" });
+    }
+
+    // if (user.role !== "professor") {
+    //   // Bloqueia usuários que não sejam professores
+    //   throw redirect({ to: "/unauthorized" });
+    // }
+
+    return {};
+  },
   component: Layout,
 })
 
