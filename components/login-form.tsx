@@ -22,7 +22,7 @@ export function LoginForm({
     console.log("Logging in with", email, password);
     const success = await login(email, password);
     if (success) {
-      navigate({ to: "/dashboard" });
+      navigate({ to: "/" });
     } else {
       setError("Credenciais inválidas");
     }

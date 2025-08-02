@@ -10,132 +10,130 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as LoginRouteImport } from './routes/login'
-import { Route as DashboardRouteRouteImport } from './routes/dashboard/route'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as DashboardIndexRouteImport } from './routes/dashboard/index'
-import { Route as DashboardSettingsRouteImport } from './routes/dashboard/settings'
-import { Route as DashboardSearchRouteImport } from './routes/dashboard/search'
-import { Route as DashboardInboxRouteImport } from './routes/dashboard/inbox'
-import { Route as DashboardHomeRouteImport } from './routes/dashboard/home'
-import { Route as DashboardCalendarRouteImport } from './routes/dashboard/calendar'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
+import { Route as AuthenticatedDashboardRouteRouteImport } from './routes/_authenticated/_dashboard/route'
+import { Route as AuthenticatedDashboardIndexRouteImport } from './routes/_authenticated/_dashboard/index'
+import { Route as AuthenticatedDashboardSettingsRouteImport } from './routes/_authenticated/_dashboard/settings'
+import { Route as AuthenticatedDashboardSearchRouteImport } from './routes/_authenticated/_dashboard/search'
+import { Route as AuthenticatedDashboardInboxRouteImport } from './routes/_authenticated/_dashboard/inbox'
+import { Route as AuthenticatedDashboardHomeRouteImport } from './routes/_authenticated/_dashboard/home'
+import { Route as AuthenticatedDashboardCalendarRouteImport } from './routes/_authenticated/_dashboard/calendar'
 
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DashboardRouteRoute = DashboardRouteRouteImport.update({
-  id: '/dashboard',
-  path: '/dashboard',
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DashboardIndexRoute = DashboardIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => DashboardRouteRoute,
-} as any)
-const DashboardSettingsRoute = DashboardSettingsRouteImport.update({
-  id: '/settings',
-  path: '/settings',
-  getParentRoute: () => DashboardRouteRoute,
-} as any)
-const DashboardSearchRoute = DashboardSearchRouteImport.update({
-  id: '/search',
-  path: '/search',
-  getParentRoute: () => DashboardRouteRoute,
-} as any)
-const DashboardInboxRoute = DashboardInboxRouteImport.update({
-  id: '/inbox',
-  path: '/inbox',
-  getParentRoute: () => DashboardRouteRoute,
-} as any)
-const DashboardHomeRoute = DashboardHomeRouteImport.update({
-  id: '/home',
-  path: '/home',
-  getParentRoute: () => DashboardRouteRoute,
-} as any)
-const DashboardCalendarRoute = DashboardCalendarRouteImport.update({
-  id: '/calendar',
-  path: '/calendar',
-  getParentRoute: () => DashboardRouteRoute,
-} as any)
+const AuthenticatedDashboardRouteRoute =
+  AuthenticatedDashboardRouteRouteImport.update({
+    id: '/_dashboard',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedDashboardIndexRoute =
+  AuthenticatedDashboardIndexRouteImport.update({
+    id: '/',
+    path: '/',
+    getParentRoute: () => AuthenticatedDashboardRouteRoute,
+  } as any)
+const AuthenticatedDashboardSettingsRoute =
+  AuthenticatedDashboardSettingsRouteImport.update({
+    id: '/settings',
+    path: '/settings',
+    getParentRoute: () => AuthenticatedDashboardRouteRoute,
+  } as any)
+const AuthenticatedDashboardSearchRoute =
+  AuthenticatedDashboardSearchRouteImport.update({
+    id: '/search',
+    path: '/search',
+    getParentRoute: () => AuthenticatedDashboardRouteRoute,
+  } as any)
+const AuthenticatedDashboardInboxRoute =
+  AuthenticatedDashboardInboxRouteImport.update({
+    id: '/inbox',
+    path: '/inbox',
+    getParentRoute: () => AuthenticatedDashboardRouteRoute,
+  } as any)
+const AuthenticatedDashboardHomeRoute =
+  AuthenticatedDashboardHomeRouteImport.update({
+    id: '/home',
+    path: '/home',
+    getParentRoute: () => AuthenticatedDashboardRouteRoute,
+  } as any)
+const AuthenticatedDashboardCalendarRoute =
+  AuthenticatedDashboardCalendarRouteImport.update({
+    id: '/calendar',
+    path: '/calendar',
+    getParentRoute: () => AuthenticatedDashboardRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/dashboard': typeof DashboardRouteRouteWithChildren
   '/login': typeof LoginRoute
-  '/dashboard/calendar': typeof DashboardCalendarRoute
-  '/dashboard/home': typeof DashboardHomeRoute
-  '/dashboard/inbox': typeof DashboardInboxRoute
-  '/dashboard/search': typeof DashboardSearchRoute
-  '/dashboard/settings': typeof DashboardSettingsRoute
-  '/dashboard/': typeof DashboardIndexRoute
+  '/calendar': typeof AuthenticatedDashboardCalendarRoute
+  '/home': typeof AuthenticatedDashboardHomeRoute
+  '/inbox': typeof AuthenticatedDashboardInboxRoute
+  '/search': typeof AuthenticatedDashboardSearchRoute
+  '/settings': typeof AuthenticatedDashboardSettingsRoute
+  '/': typeof AuthenticatedDashboardIndexRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
   '/login': typeof LoginRoute
-  '/dashboard/calendar': typeof DashboardCalendarRoute
-  '/dashboard/home': typeof DashboardHomeRoute
-  '/dashboard/inbox': typeof DashboardInboxRoute
-  '/dashboard/search': typeof DashboardSearchRoute
-  '/dashboard/settings': typeof DashboardSettingsRoute
-  '/dashboard': typeof DashboardIndexRoute
+  '/calendar': typeof AuthenticatedDashboardCalendarRoute
+  '/home': typeof AuthenticatedDashboardHomeRoute
+  '/inbox': typeof AuthenticatedDashboardInboxRoute
+  '/search': typeof AuthenticatedDashboardSearchRoute
+  '/settings': typeof AuthenticatedDashboardSettingsRoute
+  '/': typeof AuthenticatedDashboardIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
-  '/dashboard': typeof DashboardRouteRouteWithChildren
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/login': typeof LoginRoute
-  '/dashboard/calendar': typeof DashboardCalendarRoute
-  '/dashboard/home': typeof DashboardHomeRoute
-  '/dashboard/inbox': typeof DashboardInboxRoute
-  '/dashboard/search': typeof DashboardSearchRoute
-  '/dashboard/settings': typeof DashboardSettingsRoute
-  '/dashboard/': typeof DashboardIndexRoute
+  '/_authenticated/_dashboard': typeof AuthenticatedDashboardRouteRouteWithChildren
+  '/_authenticated/_dashboard/calendar': typeof AuthenticatedDashboardCalendarRoute
+  '/_authenticated/_dashboard/home': typeof AuthenticatedDashboardHomeRoute
+  '/_authenticated/_dashboard/inbox': typeof AuthenticatedDashboardInboxRoute
+  '/_authenticated/_dashboard/search': typeof AuthenticatedDashboardSearchRoute
+  '/_authenticated/_dashboard/settings': typeof AuthenticatedDashboardSettingsRoute
+  '/_authenticated/_dashboard/': typeof AuthenticatedDashboardIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | '/'
-    | '/dashboard'
     | '/login'
-    | '/dashboard/calendar'
-    | '/dashboard/home'
-    | '/dashboard/inbox'
-    | '/dashboard/search'
-    | '/dashboard/settings'
-    | '/dashboard/'
+    | '/calendar'
+    | '/home'
+    | '/inbox'
+    | '/search'
+    | '/settings'
+    | '/'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/'
     | '/login'
-    | '/dashboard/calendar'
-    | '/dashboard/home'
-    | '/dashboard/inbox'
-    | '/dashboard/search'
-    | '/dashboard/settings'
-    | '/dashboard'
+    | '/calendar'
+    | '/home'
+    | '/inbox'
+    | '/search'
+    | '/settings'
+    | '/'
   id:
     | '__root__'
-    | '/'
-    | '/dashboard'
+    | '/_authenticated'
     | '/login'
-    | '/dashboard/calendar'
-    | '/dashboard/home'
-    | '/dashboard/inbox'
-    | '/dashboard/search'
-    | '/dashboard/settings'
-    | '/dashboard/'
+    | '/_authenticated/_dashboard'
+    | '/_authenticated/_dashboard/calendar'
+    | '/_authenticated/_dashboard/home'
+    | '/_authenticated/_dashboard/inbox'
+    | '/_authenticated/_dashboard/search'
+    | '/_authenticated/_dashboard/settings'
+    | '/_authenticated/_dashboard/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  DashboardRouteRoute: typeof DashboardRouteRouteWithChildren
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   LoginRoute: typeof LoginRoute
 }
 
@@ -148,90 +146,103 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/dashboard': {
-      id: '/dashboard'
-      path: '/dashboard'
-      fullPath: '/dashboard'
-      preLoaderRoute: typeof DashboardRouteRouteImport
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
+    '/_authenticated/_dashboard': {
+      id: '/_authenticated/_dashboard'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof AuthenticatedDashboardRouteRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/_dashboard/': {
+      id: '/_authenticated/_dashboard/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof AuthenticatedDashboardIndexRouteImport
+      parentRoute: typeof AuthenticatedDashboardRouteRoute
     }
-    '/dashboard/': {
-      id: '/dashboard/'
-      path: '/'
-      fullPath: '/dashboard/'
-      preLoaderRoute: typeof DashboardIndexRouteImport
-      parentRoute: typeof DashboardRouteRoute
-    }
-    '/dashboard/settings': {
-      id: '/dashboard/settings'
+    '/_authenticated/_dashboard/settings': {
+      id: '/_authenticated/_dashboard/settings'
       path: '/settings'
-      fullPath: '/dashboard/settings'
-      preLoaderRoute: typeof DashboardSettingsRouteImport
-      parentRoute: typeof DashboardRouteRoute
+      fullPath: '/settings'
+      preLoaderRoute: typeof AuthenticatedDashboardSettingsRouteImport
+      parentRoute: typeof AuthenticatedDashboardRouteRoute
     }
-    '/dashboard/search': {
-      id: '/dashboard/search'
+    '/_authenticated/_dashboard/search': {
+      id: '/_authenticated/_dashboard/search'
       path: '/search'
-      fullPath: '/dashboard/search'
-      preLoaderRoute: typeof DashboardSearchRouteImport
-      parentRoute: typeof DashboardRouteRoute
+      fullPath: '/search'
+      preLoaderRoute: typeof AuthenticatedDashboardSearchRouteImport
+      parentRoute: typeof AuthenticatedDashboardRouteRoute
     }
-    '/dashboard/inbox': {
-      id: '/dashboard/inbox'
+    '/_authenticated/_dashboard/inbox': {
+      id: '/_authenticated/_dashboard/inbox'
       path: '/inbox'
-      fullPath: '/dashboard/inbox'
-      preLoaderRoute: typeof DashboardInboxRouteImport
-      parentRoute: typeof DashboardRouteRoute
+      fullPath: '/inbox'
+      preLoaderRoute: typeof AuthenticatedDashboardInboxRouteImport
+      parentRoute: typeof AuthenticatedDashboardRouteRoute
     }
-    '/dashboard/home': {
-      id: '/dashboard/home'
+    '/_authenticated/_dashboard/home': {
+      id: '/_authenticated/_dashboard/home'
       path: '/home'
-      fullPath: '/dashboard/home'
-      preLoaderRoute: typeof DashboardHomeRouteImport
-      parentRoute: typeof DashboardRouteRoute
+      fullPath: '/home'
+      preLoaderRoute: typeof AuthenticatedDashboardHomeRouteImport
+      parentRoute: typeof AuthenticatedDashboardRouteRoute
     }
-    '/dashboard/calendar': {
-      id: '/dashboard/calendar'
+    '/_authenticated/_dashboard/calendar': {
+      id: '/_authenticated/_dashboard/calendar'
       path: '/calendar'
-      fullPath: '/dashboard/calendar'
-      preLoaderRoute: typeof DashboardCalendarRouteImport
-      parentRoute: typeof DashboardRouteRoute
+      fullPath: '/calendar'
+      preLoaderRoute: typeof AuthenticatedDashboardCalendarRouteImport
+      parentRoute: typeof AuthenticatedDashboardRouteRoute
     }
   }
 }
 
-interface DashboardRouteRouteChildren {
-  DashboardCalendarRoute: typeof DashboardCalendarRoute
-  DashboardHomeRoute: typeof DashboardHomeRoute
-  DashboardInboxRoute: typeof DashboardInboxRoute
-  DashboardSearchRoute: typeof DashboardSearchRoute
-  DashboardSettingsRoute: typeof DashboardSettingsRoute
-  DashboardIndexRoute: typeof DashboardIndexRoute
+interface AuthenticatedDashboardRouteRouteChildren {
+  AuthenticatedDashboardCalendarRoute: typeof AuthenticatedDashboardCalendarRoute
+  AuthenticatedDashboardHomeRoute: typeof AuthenticatedDashboardHomeRoute
+  AuthenticatedDashboardInboxRoute: typeof AuthenticatedDashboardInboxRoute
+  AuthenticatedDashboardSearchRoute: typeof AuthenticatedDashboardSearchRoute
+  AuthenticatedDashboardSettingsRoute: typeof AuthenticatedDashboardSettingsRoute
+  AuthenticatedDashboardIndexRoute: typeof AuthenticatedDashboardIndexRoute
 }
 
-const DashboardRouteRouteChildren: DashboardRouteRouteChildren = {
-  DashboardCalendarRoute: DashboardCalendarRoute,
-  DashboardHomeRoute: DashboardHomeRoute,
-  DashboardInboxRoute: DashboardInboxRoute,
-  DashboardSearchRoute: DashboardSearchRoute,
-  DashboardSettingsRoute: DashboardSettingsRoute,
-  DashboardIndexRoute: DashboardIndexRoute,
+const AuthenticatedDashboardRouteRouteChildren: AuthenticatedDashboardRouteRouteChildren =
+  {
+    AuthenticatedDashboardCalendarRoute: AuthenticatedDashboardCalendarRoute,
+    AuthenticatedDashboardHomeRoute: AuthenticatedDashboardHomeRoute,
+    AuthenticatedDashboardInboxRoute: AuthenticatedDashboardInboxRoute,
+    AuthenticatedDashboardSearchRoute: AuthenticatedDashboardSearchRoute,
+    AuthenticatedDashboardSettingsRoute: AuthenticatedDashboardSettingsRoute,
+    AuthenticatedDashboardIndexRoute: AuthenticatedDashboardIndexRoute,
+  }
+
+const AuthenticatedDashboardRouteRouteWithChildren =
+  AuthenticatedDashboardRouteRoute._addFileChildren(
+    AuthenticatedDashboardRouteRouteChildren,
+  )
+
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedDashboardRouteRoute: typeof AuthenticatedDashboardRouteRouteWithChildren
 }
 
-const DashboardRouteRouteWithChildren = DashboardRouteRoute._addFileChildren(
-  DashboardRouteRouteChildren,
-)
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedDashboardRouteRoute:
+    AuthenticatedDashboardRouteRouteWithChildren,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  DashboardRouteRoute: DashboardRouteRouteWithChildren,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   LoginRoute: LoginRoute,
 }
 export const routeTree = rootRouteImport

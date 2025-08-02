@@ -17,17 +17,17 @@ import { Link, useNavigate } from "@tanstack/react-router";
 const items = [
   {
     title: "Home",
-    url: "/dashboard",
+    url: "",
     icon: Home,
   },
   {
     title: "Inbox",
-    url: "/dashboard/inbox",
+    url: "/inbox",
     icon: Inbox,
   },
   {
     title: "Settings",
-    url: "/dashboard/settings",
+    url: "/settings",
     icon: Settings,
   },
 ]
