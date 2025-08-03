@@ -9,9 +9,11 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarSeparator,
 } from "@/components/ui/sidebar";
 import { useAuth } from "@/src/auth/auth-context";
 import { Link, useNavigate } from "@tanstack/react-router";
+import { getUser } from "@/src/auth/auth";
 
 // Menu items.
 const items = [
@@ -20,21 +22,12 @@ const items = [
     url: "",
     icon: Home,
   },
-  {
-    title: "Inbox",
-    url: "/inbox",
-    icon: Inbox,
-  },
-  {
-    title: "Settings",
-    url: "/settings",
-    icon: Settings,
-  },
 ]
 
 export function AppSidebar() {
   const { logout } = useAuth();
   const navigate = useNavigate();
+  const user = getUser();
 
   function handleLogout() {
     logout();
@@ -45,7 +38,7 @@ export function AppSidebar() {
     <Sidebar>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Application</SidebarGroupLabel>
+          <SidebarGroupLabel>Bem Vindo {user?.name}</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (
@@ -58,6 +51,7 @@ export function AppSidebar() {
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
+              <SidebarSeparator />
               <SidebarMenuItem key='logout'>
                 <SidebarMenuButton onClick={handleLogout}>
                   <>

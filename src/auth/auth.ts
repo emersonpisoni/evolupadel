@@ -3,26 +3,23 @@ export type Role = "professor" | "aluno";
 type User = {
   email: string;
   name: string;
+  password: string;
   role: Role;
 };
 
-const mockUsers: Record<string, { password: string; user: User }> = {
-  "prof@padel.com": {
-    password: "123456",
-    user: { email: "prof@padel.com", name: "Professor Padel", role: "professor" },
-  },
-  "aluno@padel.com": {
-    password: "123456",
-    user: { email: "aluno@padel.com", name: "Aluno Padel", role: "aluno" },
-  },
-};
-
 export async function login(email: string, password: string): Promise<User | null> {
-  const record = mockUsers[email];
-  if (record && record.password === password) {
-    localStorage.setItem("user", JSON.stringify(record.user));
-    return record.user;
+  // const record = mockUsers[email];
+  const user = localStorage.getItem("usuarios");
+
+  if (user) {
+    const usuarios = JSON.parse(user);
+    const foundUser = usuarios.find((u: User) => u.email === email && u.password === password);
+    if (foundUser) {
+      localStorage.setItem("user", JSON.stringify(foundUser));
+      return foundUser;
+    }
   }
+
   return null;
 }
 

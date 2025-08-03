@@ -7,11 +7,13 @@ export const Route = createFileRoute('/_authenticated/_dashboard')({
 })
 
 function RouteComponent() {
-  return <SidebarProvider>
-    <AppSidebar />
-    <main>
-      <SidebarTrigger />
-      <Outlet />
-    </main>
-  </SidebarProvider>
+  return (
+    <SidebarProvider>
+      <AppSidebar />
+      <main>
+        <SidebarTrigger />
+        <Outlet />
+      </main>
+    </SidebarProvider>
+  )
 }
