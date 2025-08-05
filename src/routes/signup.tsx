@@ -1,4 +1,4 @@
-import { Signup1 } from '@/components/signup1'
+import { Signup } from '@/components/signup1'
 import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/signup')({
@@ -6,5 +6,5 @@ export const Route = createFileRoute('/signup')({
 })
 
 function RouteComponent() {
-  return <Signup1 />
+  return <Signup />
 }

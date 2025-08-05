@@ -13,7 +13,7 @@ interface Signup1Props {
   signupUrl?: string;
 }
 
-const Signup1 = ({
+export const Signup = ({
   heading = "Cadastro",
   buttonText = "Criar conta",
   signupText = "Já tem uma conta?",
@@ -107,5 +107,3 @@ const Signup1 = ({
     </section>
   );
 };
-
-export { Signup1 };
