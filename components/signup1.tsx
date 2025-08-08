@@ -15,7 +15,7 @@ interface Signup1Props {
 export const Signup = ({
   heading = "Cadastro",
   buttonText = "Criar conta",
-  signupText = "Já tem uma conta?",
+  signupText = "Já possui uma conta?",
   signupUrl = "/login",
 }: Signup1Props) => {
   const [form, setForm] = useState({
