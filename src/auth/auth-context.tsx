@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+
 import { login as authLogin, logout as authLogout, getUser, type Role } from "./auth";
 
 type User = {
