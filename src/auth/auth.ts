@@ -8,7 +8,6 @@ type User = {
 };
 
 export async function login(email: string, password: string): Promise<User | null> {
-  // const record = mockUsers[email];
   const user = localStorage.getItem("usuarios");
 
   if (user) {
