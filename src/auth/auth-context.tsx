@@ -20,7 +20,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(getUser());
 
   const login = async (email: string, password: string) => {
-    console.log("Attempting to log in with", email, password);
     const loggedUser = await authLogin(email, password);
     if (loggedUser) {
       setUser(loggedUser);
