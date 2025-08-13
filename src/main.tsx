@@ -3,12 +3,10 @@ import ReactDOM from 'react-dom/client'
 import { RouterProvider, createRouter } from '@tanstack/react-router'
 import { routeTree } from './routeTree.gen'
 
-// import './styles/globals.css'
 import reportWebVitals from './reportWebVitals.ts'
 import { ThemeProvider } from '@/components/theme-provider.tsx'
 import { AuthProvider } from './auth/auth-context.tsx'
 
-// Create a new router instance
 const router = createRouter({
   routeTree,
   context: {},
