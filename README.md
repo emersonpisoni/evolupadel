@@ -1,4 +1,4 @@
-Tanstack router, shadcn, vite
+Tanstack router, Tanstack query, shadcn, vite
 
 Welcome to your new TanStack app! 
 
