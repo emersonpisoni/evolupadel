@@ -45,7 +45,7 @@ export function LoginForm({
               href="#"
               className="ml-auto text-sm underline-offset-4 hover:underline"
             >
-              Esqueceu sua senha?
+              Esqueceu a sua senha?
             </a>
           </div>
           <Input id="password" type="password" required value={password} onChange={(e) => setPassword(e.target.value)} />
