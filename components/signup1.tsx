@@ -21,7 +21,7 @@ export const Signup = ({
   const [form, setForm] = useState({
     name: "",
     email: "",
-    password: "l",
+    password: "",
     role: "",
   });
   const navigate = useNavigate();
