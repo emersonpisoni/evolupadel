@@ -13,6 +13,8 @@ export default defineConfig({
       '@components': resolve(__dirname, './components'),
       '@hooks': resolve(__dirname, './hooks'),
       '@styles': resolve(__dirname, './styles'),
+      '@assets': resolve(__dirname, './assets'),
+      '@lib': resolve(__dirname, './lib'),
     },
   },
 })
