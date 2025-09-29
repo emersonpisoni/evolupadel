@@ -12,6 +12,7 @@ export default defineConfig({
       '@': resolve(__dirname, './'),
       '@components': resolve(__dirname, './components'),
       '@hooks': resolve(__dirname, './hooks'),
+      '@styles': resolve(__dirname, './styles'),
     },
   },
 })
